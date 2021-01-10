@@ -58,6 +58,7 @@ def printHistory():
             "No history found",
             duration=4
         )
+
     else:
         for i in range(len(stacks)-1, -1, -1):
             print(stacks[i])
@@ -121,10 +122,11 @@ def queryFunctionWorld():
 
     print("Do you want to see country list ? y for yes")
     myChoice = input("Your choice : ")
-    if myChoice == 'y' or myChoice == 'Y':
+    if myChoice == 'y' or myChoice == 'Y' or myChoice == 'yes' or myChoice == 'Yes':
         check_all_countries()
     else:
         pass
+    
     country = input("Enter your country : ")
     worldMenu()
     
@@ -148,6 +150,7 @@ def queryFunctionWorld():
                 f"{country} found in the lists",
                 duration=4
             )
+
             saveHistory(country)
             png_icon = countries[i]['countryInfo']['flag']
 
@@ -159,7 +162,9 @@ def queryFunctionWorld():
                         f"{countries[i]['cases']}",
                         duration=6
                     )
-                    return (f"Total cases {countries[i]['cases']}")
+                    return (
+                        f"Total cases {countries[i]['cases']}"
+                    )
 
                 elif choice == 2:
                     toaster.show_toast(
@@ -167,7 +172,9 @@ def queryFunctionWorld():
                         f"{countries[i]['recovered']}",
                         duration=6
                     )
-                    return (f"Recovered cases {countries[i]['recovered']}")
+                    return (
+                        f"Recovered cases {countries[i]['recovered']}"
+                    )
 
                 elif choice == 3:
                     toaster.show_toast(
@@ -175,7 +182,9 @@ def queryFunctionWorld():
                         f"{countries[i]['todayCases']}",
                         duration=6
                     )
-                    return (f"Today's cases {countries[i]['todayCases']}")
+                    return (
+                        f"Today's cases {countries[i]['todayCases']}"
+                    )
 
                 elif choice == 4:
                     toaster.show_toast(
@@ -193,7 +202,9 @@ def queryFunctionWorld():
                         f"{countries[i]['active']}",
                         duration=6
                     )
-                    return (f"Active cases {countries[i]['active']}")
+                    return (
+                        f"Active cases {countries[i]['active']}"
+                    )
 
                 elif choice == 6:
                     toaster.show_toast(
@@ -318,7 +329,9 @@ def queryFunctionIndia():
                         f"{gotState[i]['active']}",
                         duration=6
                     )
-                    return (f"Total cases {gotState[i]['active']}")
+                    return (
+                        f"Total cases {gotState[i]['active']}"
+                    )
 
                 elif choice == 2:
                     toaster.show_toast(
@@ -326,7 +339,9 @@ def queryFunctionIndia():
                         f"{gotState[i]['recovered']}",
                         duration=6
                     )
-                    return (f"Recovered cases {gotState[i]['recovered']}")
+                    return (
+                        f"Recovered cases {gotState[i]['recovered']}"
+                    )
 
                 elif choice == 3:
                     toaster.show_toast(
@@ -334,7 +349,9 @@ def queryFunctionIndia():
                         f"{gotState[i]['confirmed']}",
                         duration=6
                     )
-                    return (f"Today's cases {gotState[i]['confirmed']}")
+                    return (
+                        f"Today's cases {gotState[i]['confirmed']}"
+                    )
 
                 elif choice == 4:
                     toaster.show_toast(
@@ -343,7 +360,8 @@ def queryFunctionIndia():
                         duration=6
                     )
                     return (
-                        f"Total deaths {gotState[i]['deaths']}")
+                        f"Total deaths {gotState[i]['deaths']}"
+                        )
 
                 else:
                     toaster.show_toast(
