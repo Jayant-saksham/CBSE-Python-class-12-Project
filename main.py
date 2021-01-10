@@ -109,6 +109,7 @@ def worldMenu():
     print("Enter 9 : Total tests done COVID")
     print("Enter 10 - Critical cases")
 
+
 def indiaStateMenu():
     '''Menu box for India's data'''
 
@@ -116,6 +117,7 @@ def indiaStateMenu():
     print("Enter 2 : Total recoverd cases")
     print("Enter 3 : Confirmed cases")
     print("Enter 4 : Deaths")
+
 
 def queryFunctionWorld():
     ''' Function to fetch the data from API country wise'''
@@ -126,7 +128,7 @@ def queryFunctionWorld():
         check_all_countries()
     else:
         pass
-    
+
     country = input("Enter your country : ")
     worldMenu()
     
@@ -387,6 +389,7 @@ def queryFunctionIndia():
         )
 
 
+
 def menu():
     ''' Menu box function '''
 
@@ -394,6 +397,7 @@ def menu():
     print("Enter 2 to get data of India's state only")
     print("Any key to exit")
     print('\n')
+
 
 
 # Driver function - main
@@ -474,7 +478,6 @@ if choice == 'y' or choice == 'Y' or choice == 'yes' or choice == 'Yes':
     covid19Precations()
 else:
     pass
-
 
 
 # Clearing the history
