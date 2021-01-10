@@ -1,5 +1,7 @@
 '''
+
 BASIC OVERVIEW OF THE PROJECT (COVID-19) - 
+
 THis is a program used to fetch the Covid-19 live data from two different API's
 Python modules used : 
 1. json - To parse the obtained data
@@ -15,6 +17,7 @@ Python concept used :
 
 Others : 
 API - API stands for Application Programming Interface which is a software intermediary that allows two applications to talk to each other
+
 '''
 
 import json
@@ -91,6 +94,28 @@ def covid19Precations():
     print("For more information visit : https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public")
 
 
+def worldMenu():
+    '''Menu box for world's data'''
+
+    print("Enter 1 : Total cases")
+    print("Enter 2 : Total recoverd cases")
+    print("Enter 3 : Cases today")
+    print("Enter 4 : Today's recovered cases today")
+    print("Enter 5 : Active cases")
+    print("Enter 6 : Total population")
+    print("Enter 7 : Today's death")
+    print("Enter 8 : Total deaths")
+    print("Enter 9 : Total tests done COVID")
+    print("Enter 10 - Critical cases")
+
+def indiaStateMenu():
+    '''Menu box for India's data'''
+
+    print("Enter 1 : Active cases")
+    print("Enter 2 : Total recoverd cases")
+    print("Enter 3 : Confirmed cases")
+    print("Enter 4 : Deaths")
+
 def queryFunctionWorld():
     ''' Function to fetch the data from API country wise'''
 
@@ -101,6 +126,8 @@ def queryFunctionWorld():
     else:
         pass
     country = input("Enter your country : ")
+    worldMenu()
+    
     try:
         response = requests.get(countryAPI)
     except:
@@ -123,16 +150,7 @@ def queryFunctionWorld():
             )
             saveHistory(country)
             png_icon = countries[i]['countryInfo']['flag']
-            print("Enter 1 : Total cases")
-            print("Enter 2 : Total recoverd cases")
-            print("Enter 3 : Cases today")
-            print("Enter 4 : Today's recovered cases today")
-            print("Enter 5 : Active cases")
-            print("Enter 6 : Total population")
-            print("Enter 7 : Today's death")
-            print("Enter 8 : Total deaths")
-            print("Enter 9 : Total tests done COVID")
-            print("Enter 10 - Critical cases")
+
             try:
                 choice = int(input("Enter your choice : "))
                 if choice == 1:
@@ -142,6 +160,7 @@ def queryFunctionWorld():
                         duration=6
                     )
                     return (f"Total cases {countries[i]['cases']}")
+
                 elif choice == 2:
                     toaster.show_toast(
                         f"Total recovered cases in {countries[i]['country']}",
@@ -149,6 +168,7 @@ def queryFunctionWorld():
                         duration=6
                     )
                     return (f"Recovered cases {countries[i]['recovered']}")
+
                 elif choice == 3:
                     toaster.show_toast(
                         f"Today's cases in {countries[i]['country']}",
@@ -156,6 +176,7 @@ def queryFunctionWorld():
                         duration=6
                     )
                     return (f"Today's cases {countries[i]['todayCases']}")
+
                 elif choice == 4:
                     toaster.show_toast(
                         f"Today's recovered cases in {countries[i]['country']}",
@@ -165,6 +186,7 @@ def queryFunctionWorld():
                     return (
                         f"Today's recovered cases {countries[i]['todayRecovered']}"
                     )
+
                 elif choice == 5:
                     toaster.show_toast(
                         f"Active cases in {countries[i]['country']}",
@@ -172,6 +194,7 @@ def queryFunctionWorld():
                         duration=6
                     )
                     return (f"Active cases {countries[i]['active']}")
+
                 elif choice == 6:
                     toaster.show_toast(
                         f"Total population of {countries[i]['country']}",
@@ -181,6 +204,7 @@ def queryFunctionWorld():
                     return (
                         f"Total population of {countries[i]['country']} is {countries[i]['population']}"
                     )
+
                 elif choice == 7:
                     toaster.show_toast(
                         f"Today's death  {countries[i]['country']}",
@@ -190,6 +214,7 @@ def queryFunctionWorld():
                     return (
                         f"Today's death  {countries[i]['country']} is {countries[i]['todayDeaths']}"
                     )
+
                 elif choice == 8:
                     toaster.show_toast(
                         f"Total deaths in {countries[i]['country']}",
@@ -199,6 +224,7 @@ def queryFunctionWorld():
                     return (
                         f"Total deaths in {countries[i]['country']} is {countries[i]['deaths']}"
                     )
+
                 elif choice == 9:
                     toaster.show_toast(
                         f"Total tests in {countries[i]['country']}",
@@ -208,6 +234,7 @@ def queryFunctionWorld():
                     return (
                         f"Total deaths in {countries[i]['country']} is {countries[i]['tests']}"
                     )
+
                 elif choice == 10:
                     toaster.show_toast(
                         f"Critical cases in {countries[i]['country']}",
@@ -217,6 +244,7 @@ def queryFunctionWorld():
                     return (
                         f"Critical cases in {countries[i]['country']} is {countries[i]['critical']}"
                     )
+
                 else:
                     toaster.show_toast(
                         "Error",
@@ -280,10 +308,7 @@ def queryFunctionIndia():
                 duration=4
             )
             saveHistory(state)
-            print("Enter 1 : Active cases")
-            print("Enter 2 : Total recoverd cases")
-            print("Enter 3 : Confirmed cases")
-            print("Enter 4 : Deaths")
+            indiaStateMenu()
 
             try:
                 choice = int(input("Enter your choice : "))
@@ -294,6 +319,7 @@ def queryFunctionIndia():
                         duration=6
                     )
                     return (f"Total cases {gotState[i]['active']}")
+
                 elif choice == 2:
                     toaster.show_toast(
                         f"Total recovered cases in {gotState[i]['state']}",
@@ -301,6 +327,7 @@ def queryFunctionIndia():
                         duration=6
                     )
                     return (f"Recovered cases {gotState[i]['recovered']}")
+
                 elif choice == 3:
                     toaster.show_toast(
                         f"Today's cases in {gotState[i]['state']}",
@@ -308,6 +335,7 @@ def queryFunctionIndia():
                         duration=6
                     )
                     return (f"Today's cases {gotState[i]['confirmed']}")
+
                 elif choice == 4:
                     toaster.show_toast(
                         f"Total deaths in {gotState[i]['state']}",
@@ -316,6 +344,7 @@ def queryFunctionIndia():
                     )
                     return (
                         f"Total deaths {gotState[i]['deaths']}")
+
                 else:
                     toaster.show_toast(
                         "Error",
@@ -331,6 +360,7 @@ def queryFunctionIndia():
                     duration=6
                 )
                 print("Something when wrong")
+
     if not state_found:
         toaster.show_toast(
             "Error",
@@ -348,7 +378,8 @@ def menu():
     print('\n')
 
 
-# Driver function
+# Driver function - main
+# All the code execution goes from here
 if __name__ == "__main__":
     print("Welcome")
     toaster.show_toast(
@@ -361,6 +392,8 @@ if __name__ == "__main__":
         "This is a simple Python program used to fetch the COVID-19 data from different API's",
         duration=4
     )
+
+    # Driver loop
     while True:
         menu()
         try:
@@ -373,6 +406,7 @@ if __name__ == "__main__":
                 duration=4
             )
             break
+
         if choice == 1:
             toaster.show_toast(
                 "Python",
@@ -380,6 +414,7 @@ if __name__ == "__main__":
                 duration=4
             )
             queryFunctionWorld()
+
         elif choice == 2:
             toaster.show_toast(
                 "Python",
@@ -387,6 +422,7 @@ if __name__ == "__main__":
                 duration=4
             )
             queryFunctionIndia()
+
         else:
             print("Exiting....")
             toaster.show_toast(
@@ -399,6 +435,11 @@ if __name__ == "__main__":
 print("Do you want to see your search history : ?")
 choice = input("Enter y to Yes : ")
 if choice == 'y' or choice == 'Y' or choice == 'Yes' or choice == 'yes':
+    toaster.show_toast(
+        "Python",
+        "Search history",
+        duration=2
+    )
     printHistory()
 else:
     pass
@@ -407,9 +448,16 @@ else:
 print("Do you want to see COVID-19 precautions : ?")
 choice = input("Enter y to Yes : ")
 if choice == 'y' or choice == 'Y' or choice == 'yes' or choice == 'Yes':
+    toaster.show_toast(
+        "COVID19",
+        "Precautions",
+        duration=2
+    )
     covid19Precations()
 else:
     pass
+
+
 
 # Clearing the history
 stacks.clear()
